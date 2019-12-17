@@ -1,0 +1,38 @@
+//协议版本
+syntax = "proto3";
+
+//java配置
+option java_package = "com.hyatu.study.grpc";
+
+//定义服务
+service GrpcDemo {
+    //定义方法
+
+    //简单
+    rpc helloWorld (Request) returns (Response) {
+    }
+
+    //服务端流式
+    rpc download (Request) returns (stream Response) {
+    }
+
+    //客户端流式
+    rpc upload (stream Request) returns (Response) {
+    }
+
+    //双向流式
+    rpc chat (stream Request) returns (stream Response) {
+    }
+
+}
+
+//定义数据
+
+//请求
+message Request {
+    string req = 1;
+}
+//响应
+message Response {
+    string res = 1;
+}
